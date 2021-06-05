@@ -14,16 +14,17 @@
         [checked]="multiselect_comps"
         (change)="master_change_comps()">
       </mat-checkbox>
-      <mat-option *ngFor="let data of filteredComponents " [value]="data">
+      <mat-option  *ngFor="let data of filteredComponents " [value]="data">
         <div (click)="$event.stopPropagation()">
           <mat-checkbox *ngIf="multiselect"
             [checked]="data.selected==undefined ? false : data.selected" 
             (change)="toggleSelectionComps(data)"
             (click)="$event.stopPropagation()" 
-             [value]="data.title">
+             [value]="data.title"> 
           </mat-checkbox>
-          
-        {{ data.title }} 
+          <span [ngStyle]="{'color':data.selected === true ? 'cornflowerblue' : 'black' }">
+            {{ data.title }} 
+           </span>
         </div>
       </mat-option>
     <footer *ngIf="multiselect" >

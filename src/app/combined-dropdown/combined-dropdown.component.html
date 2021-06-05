@@ -23,7 +23,9 @@
             (click)="$event.stopPropagation()" 
             [value]="data.color">
           </mat-checkbox>
-          {{ data.color }} 
+          <span [ngStyle]="{'color':data.selected === true ? 'cornflowerblue' : 'black' }">
+            {{ data.color }} 
+           </span> 
         </div>
       </mat-option>
       <footer *ngIf="multiselect" >
@@ -56,7 +58,9 @@
             (click)="$event.stopPropagation()" 
               [value]="data.title">
           </mat-checkbox>      
-          {{ data.title }} 
+          <span [ngStyle]="{'color':data.selected === true ? 'cornflowerblue' : 'black' }">
+            {{ data.title }} 
+           </span>
         </div>
       </mat-option>
       <footer *ngIf="multiselect" >
