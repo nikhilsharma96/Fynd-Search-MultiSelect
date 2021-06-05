@@ -1,0 +1,68 @@
+<div class="div">
+  <!--Colors Search Starts from here-->
+  <div class="colors">
+    <h1>Colors Only</h1>
+    <mat-form-field >
+      <input *ngIf="searchable" type="text" class="autocomplete" placeholder="Search"
+        matInput [matAutocomplete]="auto" 
+        [formControl]="colorControl">
+      <mat-hint>Enter text to find data by name</mat-hint>
+    </mat-form-field>
+    
+    <mat-autocomplete #auto="matAutocomplete" [displayWith]="displayColors">
+      <mat-checkbox *ngIf="multiselect" class="selectall"
+        [indeterminate]="color_indeterminate"
+        [checked]="allColors"
+        (change)="changeColorSelected()">
+      </mat-checkbox>
+      <mat-option *ngFor="let data of filteredColors " [value]="data">
+        <div (click)="$event.stopPropagation()">
+          <mat-checkbox *ngIf="multiselect"
+            [checked]="data.selected==undefined ? false : data.selected" 
+            (change)="toggleColors(data)"
+            (click)="$event.stopPropagation()" 
+            [value]="data.color">
+          </mat-checkbox>
+          {{ data.color }} 
+        </div>
+      </mat-option>
+      <footer *ngIf="multiselect" >
+          <span (click)="resetColors()">Clear</span>
+          <span style="color:green" (click)="submitColors()">Submit</span>
+      </footer>
+    </mat-autocomplete>  
+  </div>
+<!--Components Search Starts from here-->
+  <div class="component">
+    <h1>Components Only</h1>
+    <mat-form-field >
+      <input *ngIf="searchable" class="autocomplete" type="text" placeholder="Search" 
+        matInput [matAutocomplete]="component" 
+        [formControl]="controlComps" >
+      <mat-hint>Enter text to find data by name</mat-hint>
+    </mat-form-field>
+    
+    <mat-autocomplete  #component="matAutocomplete" [displayWith]="displayComponent">
+      <mat-checkbox *ngIf="multiselect" class="selectall"
+        [indeterminate]="indeterminate_component"
+        [checked]="multiselect_comps"
+        (change)="master_change_comps()">
+      </mat-checkbox>
+      <mat-option *ngFor="let data of filteredComponents " [value]="data">
+        <div (click)="$event.stopPropagation()">
+          <mat-checkbox *ngIf="multiselect"
+            [checked]="data.selected==undefined ? false : data.selected" 
+            (change)="toggleSelectionComps(data)"
+            (click)="$event.stopPropagation()" 
+              [value]="data.title">
+          </mat-checkbox>      
+          {{ data.title }} 
+        </div>
+      </mat-option>
+      <footer *ngIf="multiselect" >
+          <span (click)="resetComps()">Clear</span>
+          <span style="color:green" (click)="submitComps()">Submit</span>
+      </footer>
+    </mat-autocomplete>
+  </div>
+</div>

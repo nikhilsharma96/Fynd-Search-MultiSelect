@@ -1,56 +1,7 @@
 
-<div class="div">
-  <mat-form-field >
-    <input type="text" placeholder="search" 
-      matInput [matAutocomplete]="auto" 
-      [formControl]="userControl">
-    <mat-hint>Enter text to find data by name</mat-hint>
-  </mat-form-field>
-  
-  <mat-autocomplete #auto="matAutocomplete" [displayWith]="displayFn">
-    <mat-checkbox
-      [indeterminate]="master_colors"
-      [checked]="allColor"
-      (change)="masterChangeColors()" >
-      <b>Colors</b>
-    </mat-checkbox>
-    <mat-option *ngFor="let data of filteredOptions " [value]="data">
-      <div (click)="optionClicked($event, data)">
-        <mat-checkbox 
-          [checked]="data.selected==undefined ? false : data.selected" 
-          (change)="toggleSelection(data)"
-          (click)="$event.stopPropagation()" 
-           [value]="data.color">
-          {{ data.color }} 
-        </mat-checkbox>
-      </div>
-    </mat-option>
-
-      <mat-checkbox
-        [indeterminate]="master_component"
-        [checked]="allComponent"
-        (change)="masterChangeComps()">
-        <b>Component</b>
-      </mat-checkbox>
-      <mat-option *ngFor="let data of filteredComps " [value]="data">
-        <div (click)="optionClickedComps($event, data)">
-          <mat-checkbox 
-            [checked]="data.selected==undefined ? false : data.selected" 
-            (change)="toggleSelectionComps(data)"
-            (click)="$event.stopPropagation()" 
-             [value]="data.title">
-            {{ data.title }} 
-          </mat-checkbox>
-        </div>
-      </mat-option>
-    <div class="buttons" style="position: sticky; top:200px" *ngIf="showThis">
-      <span (click)="reset()">Clear</span>
-      <span style="color:green" (click)="submit()">Submit</span>
-    </div>
-  </mat-autocomplete>
-  <ng-container *ngIf="showData">
-    <mat-list *ngFor="let data of userControl.value ; let i = index;">
-      <mat-list-item> {{data | json }}</mat-list-item> 
-    </mat-list>
-  </ng-container>
+ <div>
+   <!--This component contains both the Components & Colors-->
+  <app-combined-dropdown></app-combined-dropdown>
+   <!--This component contains Components only & Colors can be replaced in this component-->
+  <app-drop-down></app-drop-down>
 </div>

@@ -1,0 +1,59 @@
+.div{ 
+    text-align:center;
+    background-color: rgb(166, 197, 197);
+    padding: 3rem;
+    margin: 1%;
+}
+.mat-option{
+    display: block;
+    border: 1px solid rgb(223, 219, 219);
+}
+footer{ 
+  position: sticky; 
+  bottom: 0px;
+  background-color: rgb(255, 255, 255);
+  height:20%;
+  justify-items: center;
+  display: flex;
+  align-items: center;
+}
+.selectall{
+  justify-items: center;
+  display: flex;
+  align-items: center;
+  height:40px;
+  margin-left: 11%;
+}
+mat-option{
+  height:40px;  
+  display: flex !important;
+}
+.autocomplete{
+  height:40px;
+  width:96% ;
+}
+span{ 
+    margin-left: 30px;
+    display: inline-block;
+    cursor: pointer;
+    font-weight: bold;
+}
+::ng-deep .mat-checkbox-checked .mat-checkbox-background,
+::ng-deep .mat-checkbox-indeterminate .mat-checkbox-background {
+    background-color: black !important; /* Red background for example */
+}
+
+
+
+
+input {
+  font-weight: 600;
+}
+input:hover{
+  border:none;
+  border-radius: 0px;
+}
+
+
+
+

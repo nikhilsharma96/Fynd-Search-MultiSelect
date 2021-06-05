@@ -11,10 +11,14 @@ import { MatButtonModule } from '@angular/material/button';
 import {MatInputModule} from '@angular/material/input';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatListModule } from '@angular/material/list';
+import { DropDownComponent } from './drop-down/drop-down.component';
+import { CombinedDropdownComponent } from './combined-dropdown/combined-dropdown.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    DropDownComponent,
+    CombinedDropdownComponent,
   ],
   imports: [
     BrowserModule,
